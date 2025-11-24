@@ -6,7 +6,7 @@ from pathlib import Path
 
 @click.group()
 def cli():
-    """Flask API Starter CLI"""
+    """Flask API Starter Kit CLI"""
     pass
 
 @cli.command()

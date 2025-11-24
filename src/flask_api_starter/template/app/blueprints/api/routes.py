@@ -1,10 +1,5 @@
-from flask import Blueprint, jsonify
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask import Blueprint
 
-api_bp = Blueprint("api", __name__)
+api_bp = Blueprint("api", __name__, static_url_path='static/', url_prefix='/api')
 
-@api_bp.get("/me")
-@jwt_required()
-def me():
-    user_id = get_jwt_identity()
-    return jsonify({"user_id": user_id})
+# Create API routes here

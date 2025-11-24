@@ -47,8 +47,8 @@ def create_app(config_name="development"):
     from .blueprints.api.routes import api_bp
 
     # Register Blueprints
-    app.register_blueprint(auth_bp, url_prefix="/auth")
-    app.register_blueprint(api_bp, url_prefix="/api")
+    app.register_blueprint(auth_bp)
+    app.register_blueprint(api_bp)
 
     # Initialise Swagger UI Blueprint
     app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
