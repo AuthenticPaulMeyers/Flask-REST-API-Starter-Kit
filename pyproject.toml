@@ -1,6 +1,6 @@
 [project]
 name = "flask-api-starter"
-version = "0.1.0"
+version = "0.1.1"
 description = "A scalable Flask API starter with authentication, blueprints, DB setup, and full project generator"
 authors = [
   { name = "Paul Mkundika Jr", email = "authenticpaulmeyers@gmail.com" }
@@ -21,5 +21,12 @@ dependencies = [
 flask-api-starter = "flask_api_starter.cli:cli"
 
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["flask_api_starter"]
+
+[tool.setuptools.package-data]
+flask_api_starter = ["templates/**"]
