@@ -40,5 +40,6 @@ def new(project_name):
     click.echo(f"Project created at ./{project_name}")
     click.echo("Next steps:")
     click.echo(f"  cd {project_name}")
+    click.echo(f"  create a virtual environment")
     click.echo("  pip install -r requirements.txt")
     click.echo("  python run.py")
