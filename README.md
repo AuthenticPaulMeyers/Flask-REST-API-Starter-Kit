@@ -3,7 +3,7 @@
 A scalable Flask API starter with authentication (JWT), blueprints, database setup, environment configuration, and a CLI project generator.
 
 Usage:
-1. Install (after publishing or locally):
+1. Installation:
    ```
    pip install flask-api-starter
    ```
