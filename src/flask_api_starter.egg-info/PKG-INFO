@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: flask-api-starter
-Version: 1.1.1
+Version: 1.1.2
 Summary: A scalable Flask API starter with authentication, blueprints, DB setup, and full project generator
 Author-email: Paul Mkundika Jr <authenticpaulmeyers@gmail.com>
 Requires-Python: >=3.9
@@ -20,7 +20,7 @@ Dynamic: license-file
 A scalable Flask API starter with authentication (JWT), blueprints, database setup, environment configuration, and a CLI project generator.
 
 Usage:
-1. Install (after publishing or locally):
+1. Installation:
    ```
    pip install flask-api-starter
    ```

@@ -1,6 +1,6 @@
 [project]
 name = "flask-api-starter"
-version = "1.1.1"
+version = "1.1.2"
 description = "A scalable Flask API starter with authentication, blueprints, DB setup, and full project generator"
 authors = [
   { name = "Paul Mkundika Jr", email = "authenticpaulmeyers@gmail.com" }
