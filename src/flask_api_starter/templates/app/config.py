@@ -1,4 +1,8 @@
+# Read more on configurations at https://flask.palletsprojects.com/en/stable/api/#configuration
 import os
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
 
 class BaseConfig:
     SECRET_KEY = os.getenv("SECRET_KEY")

@@ -6,6 +6,7 @@ from flask_swagger_ui import get_swaggerui_blueprint
 from datetime import timedelta
 
 # Swagger UI Setup for Documentation
+# Read more at https://swagger.io/docs/specification/v3_0/about/
 SWAGGER_URL = '/docs'
 API_URL = '/static/swagger.yaml'
 
@@ -15,6 +16,8 @@ swaggerui_blueprint = get_swaggerui_blueprint(
     config={'app_name': "Placeholder for you app description here."}
 )
 
+# Read more on application factory pattern at https://flask.palletsprojects.com/en/stable/tutorial/factory/
+
 def create_app(config_name="development"):
     app = Flask(__name__)
     app.config.from_object(get_config(config_name))
@@ -23,7 +26,7 @@ def create_app(config_name="development"):
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
-    # Initialise CORS
+    # Initialise CORS with specific settings
     cors.init_app(app, supports_credentials=True, resources={
     r"/*": {
         "origins": ["<Live API URL>", "http://127.0.0.1:5000/"],
@@ -58,7 +61,9 @@ def create_app(config_name="development"):
     def send_swagger():
         return send_from_directory('static', 'swagger.yaml')
     
-    #Exception Handling | Catch Runtime Errors here
+    # Exception Handling | Catch Runtime Errors here
+    # Read more on error handling at https://flask.palletsprojects.com/en/stable/errorhandling/
+    
     @app.errorhandler(HTTP_404_NOT_FOUND)
     def handle_file_not_found(error):
         return jsonify({'error': f"{HTTP_404_NOT_FOUND} File not found!"}), HTTP_404_NOT_FOUND
@@ -85,23 +90,20 @@ def create_app(config_name="development"):
     @jwt.unauthorized_loader
     def missing_token_callback(error):
         return jsonify({
-            "error": "Authorization required",
-            "msg": "Invalid token"
+            "error": "Authorization required.",
+            "msg": "Invalid token."
         }), HTTP_401_UNAUTHORIZED
     
     @jwt.invalid_token_loader
     def invalid_token_callback(error):
         return jsonify({
-            "error": "invalid_token",
-            "msg": "Invalid token"
+            "error": "invalid_token.",
+            "msg": "Invalid token."
         }), HTTP_422_UNPROCESSABLE_ENTITY
     
     # Kill inactive database sessions
     @app.teardown_appcontext
     def shutdown_session(exception=None):
         db.session.remove()
-
-
-
 
     return app
